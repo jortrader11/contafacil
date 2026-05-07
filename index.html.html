@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContaFácil Soluciones Contables — Servicios Contables en Cali</title>
+<meta name="description" content="Servicios contables profesionales en Cali. Contabilidad, asesoría tributaria, nómina y más. Más de 5 años de experiencia. Consulta gratis.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0A1628; --navy-mid: #162040; --gold: #C9A84C; --gold-light: #E8C96A;
+    --cream: #F9F6EF; --cream-dark: #EDE9DF; --text: #1C2333; --text-muted: #5A6278; --white: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,22,40,0.97); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem; height: 70px; border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--white); }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--gold); color: var(--navy); border: none; padding: 10px 22px; border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  .hero { min-height: 100vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden; padding: 70px 4rem 0; }
+  .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 600px; height: 600px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.08); }
+  .hero-content { max-width: 650px; position: relative; z-index: 2; }
+  .hero-badge { display: inline-block; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 2px; margin-bottom: 2rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 1.5rem; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; max-width: 500px; }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary { background: var(--gold); color: var(--navy); padding: 14px 32px; border-radius: 4px; border: none; font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); padding: 14px 32px; border-radius: 4px; font-size: 15px; cursor: pointer; font-family: 'DM Sans', sans-serif; background: transparent; transition: border-color 0.2s, color 0.2s; text-decoration: none; display: inline-block; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); display: block; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+  .hero-visual { position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); width: 380px; z-index: 2; }
+  .card-mockup { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); border-radius: 12px; padding: 2rem; }
+  .card-mockup-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .avatar-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: var(--navy); }
+  .card-name { color: var(--white); font-weight: 500; font-size: 15px; }
+  .card-role { color: rgba(255,255,255,0.45); font-size: 13px; }
+  .card-row { display: flex; justify-content: space-between; margin-bottom: 1rem; }
+  .card-label { color: rgba(255,255,255,0.45); font-size: 13px; }
+  .card-value { color: var(--white); font-size: 13px; font-weight: 500; }
+  .card-value.gold { color: var(--gold); }
+  .progress-bar { background: rgba(255,255,255,0.08); border-radius: 2px; height: 4px; margin: 1.5rem 0 0.5rem; }
+  .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; width: 73%; }
+  .progress-label { display: flex; justify-content: space-between; }
+  .progress-label span { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  section { padding: 6rem 4rem; }
+  .section-label { font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 1.5rem; }
+  .section-title.light { color: var(--white); }
+  .section-sub { font-size: 17px; color: var(--text-muted); line-height: 1.8; max-width: 520px; font-weight: 300; }
+  .section-sub.light { color: rgba(255,255,255,0.6); }
+
+  .services { background: var(--cream); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; }
+  .service-card { background: var(--white); padding: 2.5rem; transition: transform 0.25s; border: 1px solid var(--cream-dark); }
+  .service-card:hover { transform: translateY(-4px); }
+  .service-icon { width: 52px; height: 52px; border-radius: 8px; background: rgba(10,22,40,0.06); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 22px; }
+  .service-card h3 { font-size: 18px; font-weight: 500; margin-bottom: 0.75rem; color: var(--text); }
+  .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+  .service-link { display: inline-flex; align-items: center; gap: 6px; color: var(--gold); font-size: 13px; font-weight: 500; text-decoration: none; margin-top: 1.5rem; cursor: pointer; }
+
+  .why { background: var(--navy); }
+  .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .why-list { list-style: none; margin-top: 2.5rem; }
+  .why-item { display: flex; gap: 1rem; margin-bottom: 2rem; }
+  .why-num { flex-shrink: 0; width: 32px; height: 32px; border: 1px solid rgba(201,168,76,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--gold); }
+  .why-item h4 { color: var(--white); font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+  .why-item p { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.7; }
+  .why-image-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15); border-radius: 12px; padding: 3rem; }
+  .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .metric-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.5rem; }
+  .metric-box .big { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); font-weight: 700; display: block; margin-bottom: 4px; }
+  .metric-box .small { font-size: 13px; color: rgba(255,255,255,0.45); }
+  .quote-box { margin-top: 1.5rem; background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold); padding: 1.25rem 1.5rem; border-radius: 0; }
+  .quote-box p { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.7; font-style: italic; }
+  .quote-author { color: var(--gold); font-size: 13px; margin-top: 0.5rem; }
+
+  .planes { background: var(--cream-dark); }
+  .planes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+  .plan-card { background: var(--white); border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); padding: 2.5rem; position: relative; transition: transform 0.25s; }
+  .plan-card:hover { transform: translateY(-3px); }
+  .plan-card.featured { background: var(--navy); border-color: var(--gold); }
+  .plan-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; padding: 5px 16px; border-radius: 0 0 6px 6px; white-space: nowrap; }
+  .plan-name { font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+  .plan-card.featured .plan-name { color: rgba(255,255,255,0.5); }
+  .plan-price { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--text); }
+  .plan-card.featured .plan-price { color: var(--white); }
+  .plan-price sup { font-size: 1rem; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+  .plan-period { font-size: 13px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .plan-card.featured .plan-period { color: rgba(255,255,255,0.4); }
+  .plan-features { list-style: none; margin: 1.5rem 0 2rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.5rem; }
+  .plan-card.featured .plan-features { border-color: rgba(255,255,255,0.08); }
+  .plan-features li { font-size: 14px; color: var(--text-muted); padding: 6px 0; display: flex; gap: 8px; align-items: flex-start; }
+  .plan-card.featured .plan-features li { color: rgba(255,255,255,0.6); }
+  .plan-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .plan-btn { width: 100%; padding: 12px; border-radius: 4px; border: 1px solid var(--navy); background: transparent; color: var(--navy); font-size: 14px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s; }
+  .plan-btn:hover { background: var(--navy); color: var(--white); }
+  .plan-card.featured .plan-btn { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .plan-card.featured .plan-btn:hover { background: var(--gold-light); }
+
+  .testimonios { background: var(--cream); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+  .testi-card { background: var(--white); padding: 2rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06); }
+  .stars { color: var(--gold); font-size: 14px; margin-bottom: 1rem; letter-spacing: 2px; }
+  .testi-card p { font-size: 15px; color: var(--text-muted); line-height: 1.75; font-style: italic; margin-bottom: 1.5rem; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--gold); }
+  .testi-name { font-size: 14px; font-weight: 500; color: var(--text); }
+  .testi-role { font-size: 12px; color: var(--text-muted); }
+
+  .contacto { background: var(--navy); }
+  .contacto-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .contact-info { margin-top: 2.5rem; }
+  .contact-item { display: flex; gap: 1rem; margin-bottom: 2rem; align-items: flex-start; }
+  .contact-icon { width: 40px; height: 40px; flex-shrink: 0; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .contact-item h4 { color: var(--white); font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+  .contact-item p { color: rgba(255,255,255,0.5); font-size: 14px; }
+  .contact-item a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .contact-item a:hover { color: var(--gold); }
+  .contact-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 2.5rem; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 12px 14px; color: var(--white); font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-group select option { background: var(--navy); }
+  .form-submit { width: 100%; background: var(--gold); color: var(--navy); border: none; padding: 14px; border-radius: 4px; font-size: 15px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background 0.2s; }
+  .form-submit:hover { background: var(--gold-light); }
+
+  footer { background: #060E1C; border-top: 1px solid rgba(255,255,255,0.05); padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); }
+  .footer-logo span { color: var(--gold); }
+  .footer-text { font-size: 13px; color: rgba(255,255,255,0.3); }
+  .footer-social { display: flex; gap: 1rem; }
+  .social-link { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 15px; transition: border-color 0.2s, color 0.2s; }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  @media (max-width: 1024px) {
+    .hero-visual { display: none; }
+    .nav-links { display: none; }
+    .services-grid, .why-inner, .planes-grid, .testi-grid, .contacto-inner { grid-template-columns: 1fr; }
+    nav { padding: 0 2rem; }
+    section { padding: 4rem 2rem; }
+    .hero { padding: 100px 2rem 4rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+    .services-header { flex-direction: column; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">ContaFácil <span>Soluciones Contables</span></div>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#planes">Planes</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Consulta gratis</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="hero-badge">📍 Cali, Colombia · Servicios Contables Profesionales</div>
+    <h1>Tu contabilidad, <em>sin complicaciones</em></h1>
+    <p>Somos contadores expertos con más de 5 años de experiencia acompañando Pymes y empresas en Cali. Declaraciones, nómina, asesoría tributaria y mucho más.</p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Solicitar asesoría gratis</a>
+      <a href="#servicios" class="btn-outline">Ver servicios</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-num">+200</span><span class="stat-label">Clientes activos</span></div>
+      <div><span class="stat-num">5+</span><span class="stat-label">Años de experiencia</span></div>
+      <div><span class="stat-num">24h</span><span class="stat-label">Tiempo de respuesta</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="card-mockup">
+      <div class="card-mockup-header">
+        <div class="avatar-circle">CF</div>
+        <div>
+          <div class="card-name">Empresa S.A.S — Cali</div>
+          <div class="card-role">Reporte mensual — Mayo 2026</div>
+        </div>
+      </div>
+      <div class="card-row"><span class="card-label">Ingresos</span><span class="card-value gold">$48.500.000</span></div>
+      <div class="card-row"><span class="card-label">Egresos</span><span class="card-value">$31.200.000</span></div>
+      <div class="card-row"><span class="card-label">IVA pendiente</span><span class="card-value">$2.100.000</span></div>
+      <div class="card-row"><span class="card-label">Estado</span><span class="card-value" style="color:#4ade80;">Al día ✓</span></div>
+      <div class="progress-bar"><div class="progress-fill"></div></div>
+      <div class="progress-label"><span>Utilidad neta</span><span style="color:var(--gold-light);">73%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services" id="servicios">
+  <div class="services-header">
+    <div>
+      <div class="section-label">Lo que hacemos</div>
+      <h2 class="section-title">Servicios contables<br>a la medida</h2>
+    </div>
+    <p class="section-sub" style="margin:0;max-width:360px;">Soluciones integrales para empresas en Cali. Concéntrate en crecer y nosotros nos encargamos de los números.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">📊</div><h3>Contabilidad General</h3><p>Gestión completa de ingresos, egresos, conciliaciones bancarias y estados financieros mensuales con precisión y transparencia.</p><span class="service-link">Saber más →</span></div>
+    <div class="service-card"><div class="service-icon">🧾</div><h3>Asesoría Tributaria</h3><p>Declaración de IVA, renta y retenciones. Optimización fiscal legal para minimizar tu carga impositiva de manera estratégica.</p><span class="service-link">Saber más →</span></div>
+    <div class="service-card"><div class="service-icon">👥</div><h3>Nómina y RRHH</h3><p>Administración de contratos, liquidación de nómina, prestaciones sociales y todo el ciclo de recursos humanos de tu empresa.</p><span class="service-link">Saber más →</span></div>
+    <div class="service-card"><div class="service-icon">🏢</div><h3>Constitución de Empresa</h3><p>Te guiamos en la creación de tu SAS o empresa unipersonal. Registro, RUT, cuenta bancaria y todo en orden desde el inicio.</p><span class="service-link">Saber más →</span></div>
+    <div class="service-card"><div class="service-icon">📋</div><h3>Informes Financieros</h3><p>Reportes personalizados y detallados para la toma de decisiones estratégicas. Balance, P&amp;G y flujo de caja al alcance de tu mano.</p><span class="service-link">Saber más →</span></div>
+    <div class="service-card"><div class="service-icon">🔒</div><h3>Revisión Fiscal</h3><p>Auditoría y revisión de tus procesos contables. Detectamos inconsistencias antes de que se conviertan en problemas tributarios.</p><span class="service-link">Saber más →</span></div>
+  </div>
+</section>
+
+<!-- POR QUÉ NOSOTROS -->
+<section class="why" id="nosotros">
+  <div class="why-inner">
+    <div>
+      <div class="section-label">Por qué elegirnos</div>
+      <h2 class="section-title light">Contabilidad con<br>vocación de servicio</h2>
+      <p class="section-sub light">Desde Cali, nos comprometemos con el éxito de tu empresa, no solo con cumplir un trámite.</p>
+      <ul class="why-list">
+        <li class="why-item"><div class="why-num">01</div><div><h4>Expertos tributarios certificados</h4><p>Todo nuestro equipo cuenta con formación especializada y se actualiza constantemente con las nuevas normativas fiscales colombianas.</p></div></li>
+        <li class="why-item"><div class="why-num">02</div><div><h4>Atención personalizada</h4><p>Resolvemos tus dudas por videollamada, teléfono o WhatsApp. Siempre hay alguien disponible para ti en Cali.</p></div></li>
+        <li class="why-item"><div class="why-num">03</div><div><h4>Transparencia total</h4><p>Sin letras pequeñas ni costos ocultos. Sabes exactamente qué recibes y cuánto pagas desde el primer día.</p></div></li>
+      </ul>
+    </div>
+    <div class="why-image-box">
+      <div class="metric-row">
+        <div class="metric-box"><span class="big">98%</span><span class="small">Clientes satisfechos</span></div>
+        <div class="metric-box"><span class="big">0</span><span class="small">Sanciones tributarias</span></div>
+        <div class="metric-box"><span class="big">5+</span><span class="small">Años en Cali</span></div>
+        <div class="metric-box"><span class="big">24h</span><span class="small">Tiempo de respuesta</span></div>
+      </div>
+      <div class="quote-box">
+        <p>"Desde que trabajo con ContaFácil puedo irme de vacaciones tranquilo sabiendo que mis cuentas están en manos expertas. Son 100% transparentes y honestos."</p>
+        <div class="quote-author">— Cliente satisfecho, Pyme sector comercio · Cali</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section class="planes" id="planes">
+  <div style="text-align:center;max-width:600px;margin:0 auto;">
+    <div class="section-label">Nuestros planes</div>
+    <h2 class="section-title">Elige el plan que<br>más te conviene</h2>
+    <p class="section-sub" style="margin:0 auto;">Sin contratos anuales forzosos. Puedes cambiar o actualizar tu plan cuando lo necesites.</p>
+  </div>
+  <div class="planes-grid">
+    <div class="plan-card">
+      <div class="plan-name">Básico</div>
+      <div class="plan-price"><sup>$</sup>150.000</div>
+      <div class="plan-period">COP / mes</div>
+      <ul class="plan-features">
+        <li>Declaración de IVA mensual</li>
+        <li>Conciliación bancaria</li>
+        <li>Registro de ingresos y egresos</li>
+        <li>Soporte por WhatsApp</li>
+      </ul>
+      <button class="plan-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Comenzar</button>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-badge">Más popular</div>
+      <div class="plan-name">Profesional</div>
+      <div class="plan-price"><sup>$</sup>380.000</div>
+      <div class="plan-period">COP / mes</div>
+      <ul class="plan-features">
+        <li>Todo lo del plan Básico</li>
+        <li>Declaración de renta anual</li>
+        <li>Nómina hasta 5 empleados</li>
+        <li>Informes financieros mensuales</li>
+        <li>Asesoría tributaria ilimitada</li>
+        <li>Atención por videollamada</li>
+      </ul>
+      <button class="plan-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Comenzar</button>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Empresarial</div>
+      <div class="plan-price"><sup>$</sup>750.000</div>
+      <div class="plan-period">COP / mes</div>
+      <ul class="plan-features">
+        <li>Todo lo del plan Profesional</li>
+        <li>Nómina hasta 20 empleados</li>
+        <li>Revisión fiscal trimestral</li>
+        <li>Contador dedicado exclusivo</li>
+        <li>Auditoría contable semestral</li>
+      </ul>
+      <button class="plan-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Comenzar</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div style="text-align:center;max-width:600px;margin:0 auto 0;">
+    <div class="section-label">Testimonios</div>
+    <h2 class="section-title">Lo que dicen<br>nuestros clientes</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"ContaFácil transformó por completo la forma en que gestiono mis finanzas. El equipo es profesional, puntual y siempre actualizado con las normativas."</p><div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">María Rodríguez</div><div class="testi-role">Gerente, Comercializadora MR · Cali</div></div></div></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Me han acompañado desde cero, desde la constitución de mi empresa hasta la primera declaración de renta. Claridad y confianza en cada paso."</p><div class="testi-author"><div class="testi-avatar">JP</div><div><div class="testi-name">Julián Pérez</div><div class="testi-role">Fundador, JP Construcciones · Cali</div></div></div></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Responden en menos de 24 horas. Tienen paciencia infinita para explicar temas complejos y nunca te dejan con dudas. ¡100% recomendados!"</p><div class="testi-author"><div class="testi-avatar">AL</div><div><div class="testi-name">Andrea López</div><div class="testi-role">CEO, Studio AL Diseño · Cali</div></div></div></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+  <div class="contacto-inner">
+    <div>
+      <div class="section-label">Contáctanos</div>
+      <h2 class="section-title light">Hablemos sobre<br>tu negocio</h2>
+      <p class="section-sub light">La primera consulta es totalmente gratuita. Estamos en Cali, listos para ayudarte.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><h4>Ubicación</h4><p>Cali, Valle del Cauca, Colombia</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div><h4>WhatsApp / Teléfono</h4><a href="https://wa.me/573175472369">317 547 2369</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div><h4>Correo electrónico</h4><a href="mailto:contafacilsoluciones123@gmail.com">contafacilsoluciones123@gmail.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📷</div>
+          <div><h4>Instagram</h4><a href="https://instagram.com/contafacil_oficial1" target="_blank">@contafacil_oficial1</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⏱️</div>
+          <div><h4>Horario de atención</h4><p>Lunes a Sábado · 8:00 am – 7:00 pm</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-group"><label>Nombre completo</label><input type="text" placeholder="Tu nombre"></div>
+      <div class="form-group"><label>Correo electrónico</label><input type="email" placeholder="tu@empresa.com"></div>
+      <div class="form-group"><label>Teléfono / WhatsApp</label><input type="tel" placeholder="3XX XXX XXXX"></div>
+      <div class="form-group">
+        <label>Tipo de empresa</label>
+        <select><option>Persona Natural</option><option>SAS / Sociedad</option><option>Empresa Unipersonal</option><option>Otro</option></select>
+      </div>
+      <div class="form-group">
+        <label>Servicio de interés</label>
+        <select><option>Contabilidad General</option><option>Asesoría Tributaria</option><option>Nómina y RRHH</option><option>Constitución de Empresa</option><option>Revisión Fiscal</option></select>
+      </div>
+      <div class="form-group"><label>Mensaje</label><textarea placeholder="Cuéntanos sobre tu empresa y qué necesitas..."></textarea></div>
+      <button class="form-submit" onclick="window.open('https://wa.me/573175472369?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20contables','_blank')">Enviar por WhatsApp →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">ContaFácil <span>Soluciones Contables</span></div>
+  <div class="footer-text">© 2026 ContaFácil Soluciones · Cali, Colombia · Todos los derechos reservados.</div>
+  <div class="footer-social">
+    <a class="social-link" href="https://instagram.com/contafacil_oficial1" target="_blank" title="Instagram">📷</a>
+    <a class="social-link" href="https://wa.me/573175472369" target="_blank" title="WhatsApp">💬</a>
+    <a class="social-link" href="mailto:contafacilsoluciones123@gmail.com" title="Correo">✉️</a>
+  </div>
+</footer>
+
+</body>
+</html>
